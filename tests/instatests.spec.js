@@ -22,7 +22,6 @@ test.describe('Posts', () => {
     await page.goto('http://insta-clone-group.herokuapp.com/');
     await page.goto('http://insta-clone-group.herokuapp.com/login');
     await page.locator('text=Demo User').click();
-    await expect(page).toHaveURL('http://insta-clone-group.herokuapp.com/');
     await page.locator('text=demo0 likesdemo test >> div').nth(1).click();
     await page.locator('#edit-comment').click();
     await page.locator('textarea:has-text("test")').click();
@@ -32,12 +31,6 @@ test.describe('Posts', () => {
     await expect(welcome).toBe('testt')
 });
 
-  // test('should redirect user to sign up page', async ({ page }) => {
-  //   await page.goto('http://insta-clone-group.herokuapp.com/login');
-  //   await page.locator('text=Sign up').click();
-  //   await expect(page).toHaveURL('http://insta-clone-group.herokuapp.com/sign-up');
-  // });
-
 })
 
 test.describe('Comment', () => {
@@ -45,7 +38,6 @@ test.describe('Comment', () => {
     await page.goto('http://insta-clone-group.herokuapp.com/');
     await page.goto('http://insta-clone-group.herokuapp.com/login');
     await page.locator('text=Demo User').click();
-    await expect(page).toHaveURL('http://insta-clone-group.herokuapp.com/');
     await page.locator('text=demo0 likesdemo testt >> div').nth(1).click();
     await page.locator('[placeholder="Add a comment\\.\\.\\."]').click();
     await page.locator('[placeholder="Add a comment\\.\\.\\."]').fill('test');
@@ -54,18 +46,6 @@ test.describe('Comment', () => {
     await expect(comment).toBe('test')
   })
 
-  // test('should allow user to edit comments', async ({ page }) => {
-  //   await page.goto('http://insta-clone-group.herokuapp.com/');
-  //   await page.goto('http://insta-clone-group.herokuapp.com/login');
-  //   await page.locator('text=Demo User').click();
-  //   await page.locator('text=demo0 likesdemo testt >> div').nth(1).click();
-  //   await page.locator('text=test2 >> #edit-comment').click();
-  //   await page.locator('text=demotesttdemo >> input[type="text"]').click();
-  //   await page.locator('text=demotesttdemo >> input[type="text"]').fill('test');
-  //   await page.locator('#submit-edit-comment').click();
-  //   const comment = await page.innerText('.edit-comment-form')
-  //   await expect(comment).toBe('test')
-  // })
 })
 
 test.describe('Follows', () => {
@@ -84,8 +64,6 @@ test.describe('Follows', () => {
   await page.goto('http://insta-clone-group.herokuapp.com/login');
   await page.locator('text=Demo User').click();
   await page.goto('http://insta-clone-group.herokuapp.com/profile/4');
-  // await page.locator('text=Demo User').click();
-  // await page.locator('text=acerola-surfs').click();
   await page.locator('button:has-text("Follow")').click();
   const comment = await page.innerText('#unfollow-butt')
   await expect(comment).toBe('Unfollow')
