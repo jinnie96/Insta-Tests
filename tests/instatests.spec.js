@@ -25,10 +25,10 @@ test.describe('Posts', () => {
     await page.locator('text=demo0 likesdemo test >> div').nth(1).click();
     await page.locator('#edit-comment').click();
     await page.locator('textarea:has-text("test")').click();
-    await page.locator('textarea:has-text("test")').fill('testt');
+    await page.locator('textarea:has-text("test")').fill('test');
     await page.locator('#submit-edit-comment').click();
     const welcome = await page.innerText('#single-caption-comments div div')
-    await expect(welcome).toBe('testt')
+    await expect(welcome).toBe('test')
 });
 
 })
